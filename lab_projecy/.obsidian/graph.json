@@ -1,0 +1,37 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "Вступ",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "Разрабо",
+      "color": {
+        "a": 1,
+        "rgb": 5074761
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -1.7,
+  "nodeSizeMultiplier": 1.45096585365854,
+  "lineSizeMultiplier": 1.45096585365854,
+  "collapse-forces": false,
+  "centerStrength": 0.0571707317073171,
+  "repelStrength": 10,
+  "linkStrength": 0.956292682926829,
+  "linkDistance": 180,
+  "scale": 0.45050811767578164,
+  "close": true
+}
