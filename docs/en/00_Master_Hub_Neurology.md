@@ -37,3 +37,7 @@ Immune-mediated injury to neural tissue featuring blood-brain barrier disruption
 
 ## 🧭 Navigation
 Every document contains bidirectional wikilinks `[[Note_Name]]` that connect underlying pathophysiology with concrete clinical scales and machine learning input vectors.
+
+
+## 🧬 Advanced Research Monographs
+- [[Research_Multiple_Sclerosis_Detection_and_Subtype_Classification|Research Monograph: MS Detection & Subtype Classification (AI, Kaggle)]]

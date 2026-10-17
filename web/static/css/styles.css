@@ -541,3 +541,129 @@ body.theme-medical {
     color: var(--text-muted);
     margin-top: auto;
 }
+
+/* ==========================================================================
+   NeuroAI Studio: Mode Switcher Tabs & McDonald Badges Additions
+   ========================================================================== */
+
+.mode-nav-tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px;
+}
+
+.nav-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(18, 25, 41, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    backdrop-filter: blur(12px);
+}
+
+.nav-tab:hover {
+    background: rgba(26, 36, 58, 0.85);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+}
+
+.nav-tab.active {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(192, 132, 252, 0.12) 100%);
+    border-color: #38bdf8;
+    color: var(--text-primary);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.tab-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.tab-text strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.tab-text small {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.nav-tab.active .tab-text small {
+    color: #38bdf8;
+}
+
+/* McDonald Criteria Box */
+.mcdonald-criteria-box {
+    margin-top: 20px;
+    padding: 18px;
+    background: rgba(10, 14, 23, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: var(--radius-md);
+}
+
+.criteria-title {
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.criteria-badges-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mcdonald-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.mcdonald-badge.met {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #34d399;
+}
+
+.mcdonald-badge.unmet {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.badge-check {
+    font-size: 0.9rem;
+}
+
+.badge-name {
+    font-weight: 600;
+}
+
+.badge-detail {
+    margin-left: auto;
+    font-size: 0.78rem;
+    opacity: 0.9;
+}

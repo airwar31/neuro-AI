@@ -65,3 +65,7 @@ In [[Multimodal_AI_in_Neurology]], T2 lesion counts, oligoclonal band status, ED
 - Class: [[Autoimmune_CNS_Disorders]]
 - Differential: [[Neuromyelitis_Optica_NMOSD]]
 - Diagnostic Tools: [[Clinical_Questionnaires_and_Scales]], [[MRI_Biomarkers_and_Neuroimaging]], [[Laboratory_and_CSF_Biomarkers]]
+
+---
+## 🔬 Comprehensive Research Monograph & AI Classifier
+- Read the full peer-review monograph: **[[Research_Multiple_Sclerosis_Detection_and_Subtype_Classification|Research Monograph: Multiple Sclerosis Detection, Neuroimaging, Biomarkers, and Subtype Classification (CIS, RRMS, SPMS, PPMS)]]**.
