@@ -1,0 +1,65 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:ru",
+      "color": {
+        "a": 1,
+        "rgb": 3717112
+      }
+    },
+    {
+      "query": "path:en",
+      "color": {
+        "a": 1,
+        "rgb": 12611580
+      }
+    },
+    {
+      "query": "tag:#neurodegeneration",
+      "color": {
+        "a": 1,
+        "rgb": 16098059
+      }
+    },
+    {
+      "query": "tag:#autoimmunity",
+      "color": {
+        "a": 1,
+        "rgb": 16007774
+      }
+    },
+    {
+      "query": "tag:#diagnostics",
+      "color": {
+        "a": 1,
+        "rgb": 1095961
+      }
+    },
+    {
+      "query": "tag:#ai",
+      "color": {
+        "a": 1,
+        "rgb": 6514673
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.25,
+  "lineSizeMultiplier": 1.2,
+  "collapse-forces": false,
+  "centerStrength": 0.45,
+  "repelStrength": 12,
+  "linkStrength": 1,
+  "linkDistance": 180,
+  "scale": 0.42731622661801144,
+  "close": true
+}

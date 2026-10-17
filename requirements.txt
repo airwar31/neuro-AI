@@ -1,0 +1,21 @@
+# ==============================================================================
+# NeuroAI - Medical Machine Learning & Clinical Explorer Dependencies
+# ==============================================================================
+
+# Core Scientific Computing
+numpy>=1.22.0
+pandas>=1.5.0
+scipy>=1.9.0
+
+# Machine Learning & Neural Networks
+scikit-learn>=1.2.0
+torch>=2.0.0
+
+# Medical Data Processing (Optional for DICOM/NIfTI)
+# pydicom>=2.4.0
+# nibabel>=5.1.0
+
+# Interactive Clinical Web Studio
+Flask>=2.3.0
+Werkzeug>=2.3.0
+Jinja2>=3.1.0

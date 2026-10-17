@@ -1,0 +1,8 @@
+# Hyperparameter Grid for NeuroAI Clinical Ensemble
+cohort_samples: 1200
+cv_folds: 5
+grid:
+  rf_n_estimators: [80, 120]
+  rf_max_depth: [6, 8]
+  gb_n_estimators: [60, 90]
+  gb_learning_rate: [0.06, 0.1]

@@ -1,0 +1,43 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Model Checkpoints & Datasets
+*.pt
+*.pth
+*.pkl
+*.h5
+*.onnx
+*.cbm
+data/*.csv
+data/*.dcm
+data/*.nii
+data/*.nii.gz
+*.sqlite
+*.sqlite3
+
+# Obsidian Vault caches
+.obsidian/workspace*
+.obsidian/plugins/
+.obsidian/cache/
+.trash/
+
+# IDE & Editor caches
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary outputs
+logs/
+*.log

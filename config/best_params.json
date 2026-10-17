@@ -1,0 +1,7 @@
+{
+  "rf_n_estimators": 80,
+  "rf_max_depth": 6,
+  "gb_n_estimators": 60,
+  "gb_learning_rate": 0.06,
+  "best_macro_f1": 0.9984
+}
