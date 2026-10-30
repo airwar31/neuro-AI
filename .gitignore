@@ -48,3 +48,6 @@ scratch/
 # Temporary outputs
 logs/
 *.log
+
+quartz-builder/
+

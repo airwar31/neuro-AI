@@ -1,5 +1,5 @@
 ---
-title: Research: Multiple Sclerosis Detection and Clinical Subtype Classification
+title: "Research: Multiple Sclerosis Detection and Clinical Subtype Classification"
 tags: [multiple-sclerosis, demyelination, mcdonald-criteria, neuroimaging, biofluid-biomarkers, ai-classification, machine-learning, obsidian-vault]
 created: 2026-10-17
 author: Danila (airwar31)
