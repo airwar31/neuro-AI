@@ -3,160 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroAI Studio | Multimodal Neurological Diagnostic Engine & MS Subclass Phenotyping</title>
+    <title>NeuroAI Studio — Clinical Diagnostic Engine & MS Phenotyping</title>
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="theme-medical">
-    <div class="glow-bg"></div>
-
+<body class="theme-light">
+    <!-- Top Navigation / Application Header -->
     <header class="app-header">
         <div class="header-container">
             <div class="brand">
-                <div class="brand-badge">🧠</div>
-                <div>
-                    <h1 class="brand-title">NeuroAI <span class="badge-studio">Multimodal Studio</span></h1>
-                    <p class="brand-sub">Clinical Surveys, Quantitative MRI & Biofluid Diagnostic System</p>
+                <div class="brand-logo" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.2"/>
+                        <circle cx="5" cy="7" r="2"/>
+                        <circle cx="19" cy="7" r="2"/>
+                        <circle cx="5" cy="17" r="2"/>
+                        <circle cx="19" cy="17" r="2"/>
+                        <path d="M7 8l3.5 2.5M17 8l-3.5 2.5M7 16l3.5-2.5M17 16l-3.5-2.5"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-title-row">
+                        <span class="brand-title">NeuroAI</span>
+                        <span class="badge-studio" data-i18n="badge_studio">Clinical Studio</span>
+                    </div>
+                    <p class="brand-sub" data-i18n="brand_sub">Diagnostic Decision Support & Quantitative Neuroimaging Platform</p>
                 </div>
             </div>
+
             <div class="header-actions">
-                <span class="status-badge">● Dual Engine: Screening + MS Subclass ML</span>
-                <a href="https://github.com/airwar31/neuro-AI" target="_blank" class="btn-github">GitHub Repository</a>
+                <!-- Apple-style Language Switcher -->
+                <div class="lang-switch-capsule" role="group" aria-label="Language selection">
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
+                    <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+                </div>
+
+                <div class="system-status-indicator">
+                    <span class="status-pulse-dot" aria-hidden="true"></span>
+                    <span class="status-text" data-i18n="status_active">Dual Inference Active</span>
+                </div>
+                <a href="https://github.com/airwar31/neuro-AI" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                    <span data-i18n="github_repo">Repository</span>
+                </a>
             </div>
         </div>
     </header>
 
     <main class="main-container">
-        <!-- Mode Switcher Navigation Tabs -->
-        <div class="mode-nav-tabs">
-            <button type="button" id="tab-general" class="nav-tab active">
-                <span class="tab-icon">🧠</span>
-                <div class="tab-text">
-                    <strong>General Neurological Screening</strong>
-                    <small>AD, PD, MS, ALS, MCI & Controls</small>
-                </div>
-            </button>
-            <button type="button" id="tab-ms" class="nav-tab">
-                <span class="tab-icon">🎗️</span>
-                <div class="tab-text">
-                    <strong>Multiple Sclerosis Phenotyping (Kaggle Benchmark)</strong>
-                    <small>Control, CIS, RRMS, SPMS, PPMS & McDonald 2017</small>
-                </div>
-            </button>
+        <!-- Segmented Mode Control (Apple Style) -->
+        <div class="segmented-control-wrap">
+            <div class="segmented-control" role="tablist">
+                <button type="button" id="tab-general" class="segmented-item active" role="tab" aria-selected="true">
+                    <svg class="segmented-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v12M6 12h12"/>
+                        <circle cx="12" cy="12" r="4"/>
+                    </svg>
+                    <div class="segmented-text">
+                        <span class="seg-title" data-i18n="tab_general_title">General Neurological Screening</span>
+                        <span class="seg-desc" data-i18n="tab_general_desc">AD, PD, MS, ALS, MCI & Healthy Controls</span>
+                    </div>
+                </button>
+                <button type="button" id="tab-ms" class="segmented-item" role="tab" aria-selected="false">
+                    <svg class="segmented-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    <div class="segmented-text">
+                        <span class="seg-title" data-i18n="tab_ms_title">Multiple Sclerosis Phenotyping</span>
+                        <span class="seg-desc" data-i18n="tab_ms_desc">CIS, RRMS, SPMS, PPMS & McDonald 2017 Validation</span>
+                    </div>
+                </button>
+            </div>
         </div>
 
-        <!-- Preset Archetypes Ribbon -->
-        <section class="presets-bar">
+        <!-- Presets Selection Bar -->
+        <section class="presets-section">
             <div class="presets-header">
-                <span class="presets-label" id="presets-label-text">Select General Screening Archetype:</span>
-                <span class="presets-hint">Pre-fills validated clinical & neuroimaging biomarker vectors</span>
+                <span class="presets-label" id="presets-label-text" data-i18n="presets_label">Validated Clinical Cohort Presets</span>
+                <span class="presets-sublabel" data-i18n="presets_sublabel">Pre-populates clinical surveys, MRI volumetrics, and CSF indices</span>
             </div>
             <div class="presets-scroll" id="presets-container">
-                <!-- Dynamically populated by JS based on active tab -->
+                <!-- Dynamically populated by JS -->
             </div>
         </section>
 
         <!-- VIEW 1: GENERAL SCREENING -->
         <div id="view-general" class="studio-view active-view">
             <div class="studio-layout">
-                <!-- Left: Clinical Form -->
+                <!-- Left: Clinical Input Form -->
                 <section class="card form-card">
                     <div class="card-header">
-                        <h2>Patient Multimodal Assessment</h2>
-                        <span class="badge-live">● Live Sync</span>
+                        <div class="card-header-titles">
+                            <h2 data-i18n="card_general_title">Patient Clinical Assessment</h2>
+                            <p data-i18n="card_general_desc">Structured clinical history, cognitive evaluations, and neuroimaging parameters</p>
+                        </div>
+                        <span class="badge-pill-live" data-i18n="badge_live">Real-Time Sync</span>
                     </div>
 
                     <form id="patient-form" class="clinical-form">
                         <div class="form-section">
-                            <h3 class="section-title">Demographics & Clinical Surveys</h3>
+                            <h3 class="section-title" data-i18n="sec_demographics">Demographics & Cognitive Scales</h3>
                             <div class="grid-2">
                                 <div class="input-group">
-                                    <label for="age">Age (Years)</label>
+                                    <label for="age" data-i18n="lbl_age">Age (Years)</label>
                                     <input type="number" id="age" name="age" min="18" max="100" value="62" required>
                                 </div>
                                 <div class="input-group">
-                                    <label for="gender">Biological Sex</label>
+                                    <label for="gender" data-i18n="lbl_gender">Biological Sex</label>
                                     <select id="gender" name="gender">
-                                        <option value="0">Female</option>
-                                        <option value="1">Male</option>
+                                        <option value="0" data-i18n="opt_female">Female</option>
+                                        <option value="1" data-i18n="opt_male">Male</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="mmse">MMSE Score (0–30)</label>
+                                    <label for="mmse" data-i18n="lbl_mmse">MMSE Score (0–30)</label>
                                     <input type="number" id="mmse" name="mmse" min="0" max="30" value="28">
                                 </div>
                                 <div class="input-group">
-                                    <label for="moca">MoCA Score (0–30)</label>
+                                    <label for="moca" data-i18n="lbl_moca">MoCA Score (0–30)</label>
                                     <input type="number" id="moca" name="moca" min="0" max="30" value="27">
                                 </div>
                                 <div class="input-group">
-                                    <label for="updrs_motor">MDS-UPDRS Part III (0–132)</label>
+                                    <label for="updrs_motor" data-i18n="lbl_updrs">MDS-UPDRS Part III (0–132)</label>
                                     <input type="number" id="updrs_motor" name="updrs_motor" min="0" max="132" value="2">
                                 </div>
                                 <div class="input-group">
-                                    <label for="edss_score">EDSS Score (0–10.0)</label>
+                                    <label for="edss_score" data-i18n="lbl_edss">EDSS Score (0–10.0)</label>
                                     <input type="number" id="edss_score" name="edss_score" step="0.5" min="0" max="10" value="0.0">
                                 </div>
                                 <div class="input-group">
-                                    <label for="alsfrs_r">ALSFRS-R Scale (0–48)</label>
+                                    <label for="alsfrs_r" data-i18n="lbl_alsfrs">ALSFRS-R Scale (0–48)</label>
                                     <input type="number" id="alsfrs_r" name="alsfrs_r" min="0" max="48" value="48">
                                 </div>
                                 <div class="input-group">
-                                    <label for="fatigue_score">Fatigue Severity (FSS 1–7)</label>
+                                    <label for="fatigue_score" data-i18n="lbl_fatigue">Fatigue Severity (FSS 1–7)</label>
                                     <input type="number" id="fatigue_score" name="fatigue_score" step="0.1" min="1" max="7" value="2.0">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">Quantitative MRI & Biofluids</h3>
+                            <h3 class="section-title" data-i18n="sec_mri_biofluids">Quantitative MRI & Biofluids</h3>
                             <div class="grid-2">
                                 <div class="input-group">
-                                    <label for="hippocampus_vol">Hippocampus Volume (mm³)</label>
+                                    <label for="hippocampus_vol" data-i18n="lbl_hippo">Hippocampus Volume (mm³)</label>
                                     <input type="number" id="hippocampus_vol" name="hippocampus_vol" min="1000" max="6000" value="4100">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ventricles_vol">Ventricles Volume (mm³)</label>
+                                    <label for="ventricles_vol" data-i18n="lbl_vent">Ventricles Volume (mm³)</label>
                                     <input type="number" id="ventricles_vol" name="ventricles_vol" min="10000" max="120000" value="26000">
                                 </div>
                                 <div class="input-group">
-                                    <label for="n_wbv">Normalized Brain Vol (nWBV)</label>
+                                    <label for="n_wbv" data-i18n="lbl_nwbv">Normalized Brain Vol (nWBV)</label>
                                     <input type="number" id="n_wbv" name="n_wbv" step="0.01" min="0.50" max="0.90" value="0.78">
                                 </div>
                                 <div class="input-group">
-                                    <label for="t2_lesions_count">T2 Demyelinating Lesions</label>
+                                    <label for="t2_lesions_count" data-i18n="lbl_t2">T2 Demyelinating Lesions</label>
                                     <input type="number" id="t2_lesions_count" name="t2_lesions_count" min="0" max="100" value="0">
                                 </div>
                                 <div class="input-group">
-                                    <label for="swi_swallow_tail_loss">SWI Swallow-Tail Sign Loss</label>
+                                    <label for="swi_swallow_tail_loss" data-i18n="lbl_swi">SWI Swallow-Tail Sign</label>
                                     <select id="swi_swallow_tail_loss" name="swi_swallow_tail_loss">
-                                        <option value="0">Preserved (Nigrosome-1 Intact)</option>
-                                        <option value="1">Lost (Dopaminergic Depletion)</option>
+                                        <option value="0" data-i18n="opt_swi_0">Preserved (Nigrosome-1 Intact)</option>
+                                        <option value="1" data-i18n="opt_swi_1">Lost (Dopaminergic Depletion)</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="motor_cortex_atrophy">Motor Cortex Thinning (0–1)</label>
+                                    <label for="motor_cortex_atrophy" data-i18n="lbl_motor_cortex">Motor Cortex Thinning (0–1)</label>
                                     <input type="number" id="motor_cortex_atrophy" name="motor_cortex_atrophy" step="0.05" min="0" max="1.0" value="0.05">
                                 </div>
                                 <div class="input-group">
-                                    <label for="oligoclonal_bands">CSF Oligoclonal Bands</label>
+                                    <label for="oligoclonal_bands" data-i18n="lbl_ocb">CSF Oligoclonal Bands</label>
                                     <select id="oligoclonal_bands" name="oligoclonal_bands">
-                                        <option value="0">Negative (Normal)</option>
-                                        <option value="1">Positive (Type 2 Synthesis)</option>
+                                        <option value="0" data-i18n="opt_ocb_0">Negative (Pattern 1)</option>
+                                        <option value="1" data-i18n="opt_ocb_1">Positive (Type 2 Synthesis)</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="symptom_duration_months">Symptom Duration (Months)</label>
+                                    <label for="symptom_duration_months" data-i18n="lbl_duration">Symptom Duration (Months)</label>
                                     <input type="number" id="symptom_duration_months" name="symptom_duration_months" min="0" max="240" value="6">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn-primary">Compute Differential Risk</button>
-                            <button type="button" id="btn-reset" class="btn-secondary">Reset to Control</button>
+                            <button type="submit" class="btn-primary" data-i18n="btn_compute_general">Compute Differential Risk</button>
+                            <button type="button" id="btn-reset" class="btn-secondary" data-i18n="btn_reset_baseline">Reset to Control Baseline</button>
                         </div>
                     </form>
                 </section>
@@ -164,55 +202,73 @@
                 <!-- Right: Clinical Results Panel -->
                 <section class="card results-card">
                     <div class="card-header">
-                        <h2>Diagnostic Assessment</h2>
-                        <span class="badge-ai">Ensemble ML</span>
+                        <div class="card-header-titles">
+                            <h2 data-i18n="res_card_general_title">Diagnostic Synthesis</h2>
+                            <p data-i18n="res_card_general_desc">Ensemble Model Calibration & Stratification</p>
+                        </div>
+                        <span class="badge-pill-verified" data-i18n="badge_ensemble">Ensemble ML</span>
                     </div>
 
                     <div class="result-banner">
                         <div class="res-title-wrap">
-                            <span class="label-sub">Primary Classification</span>
+                            <span class="meta-label" data-i18n="lbl_primary_prob">Primary Diagnostic Probability</span>
                             <h3 id="res-diagnosis" class="res-headline">Analyzing...</h3>
-                            <span id="res-confidence" class="confidence-pill">--% Probability</span>
+                            <div class="confidence-wrap">
+                                <span id="res-confidence" class="confidence-pill">--% Probability</span>
+                            </div>
                         </div>
                         <div class="res-risk-box">
-                            <span class="label-sub">Clinical Priority</span>
+                            <span class="meta-label" data-i18n="lbl_clinical_status">Clinical Severity Status</span>
                             <div id="res-risk" class="risk-badge">--</div>
                         </div>
                     </div>
 
                     <div class="urgency-callout">
-                        <strong>Clinical Action Plan:</strong>
+                        <div class="callout-header">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                            <strong data-i18n="lbl_action_plan">Recommended Clinical Action Plan</strong>
+                        </div>
                         <p id="res-urgency">Loading recommendations...</p>
                     </div>
 
                     <div class="diff-section">
-                        <h4>Multimodal Differential Probabilities</h4>
+                        <div class="section-subtitle-row">
+                            <h4 data-i18n="lbl_differential_spectrum">Multimodal Differential Spectrum</h4>
+                            <span class="section-subtext" data-i18n="lbl_calibrated_probs">Calibrated Probabilities</span>
+                        </div>
                         <div id="diff-bars" class="diff-container">
                             <!-- Populated dynamically -->
                         </div>
                     </div>
 
                     <div class="indices-section">
-                        <h4>Pathophysiological Derived Indices</h4>
+                        <div class="section-subtitle-row">
+                            <h4 data-i18n="lbl_derived_biomarkers">Derived Pathophysiological Biomarkers</h4>
+                            <span class="section-subtext" data-i18n="lbl_automated_indices">Automated Indices</span>
+                        </div>
                         <div class="indices-grid">
                             <div class="index-box">
-                                <span class="index-label">Vent-to-Brain (VBR)</span>
+                                <span class="index-label" data-i18n="idx_vbr">Vent-to-Brain (VBR)</span>
                                 <span id="idx-vbr" class="index-val">--</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Hippo Atrophy</span>
+                                <span class="index-label" data-i18n="idx_hippo">Hippocampal Atrophy</span>
                                 <span id="idx-hippo" class="index-val">--%</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Cognitive Decline</span>
+                                <span class="index-label" data-i18n="idx_cog">Cognitive Deficit</span>
                                 <span id="idx-cog" class="index-val">--%</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Motor Deficit</span>
+                                <span class="index-label" data-i18n="idx_motor">Motor Impairment</span>
                                 <span id="idx-motor" class="index-val">--%</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Demyelination Burden</span>
+                                <span class="index-label" data-i18n="idx_demyel">Demyelination Burden</span>
                                 <span id="idx-demyel" class="index-val">--%</span>
                             </div>
                         </div>
@@ -227,123 +283,126 @@
                 <!-- Left: MS Specific Form -->
                 <section class="card form-card">
                     <div class="card-header">
-                        <h2>MS Subclass & McDonald Criteria Evaluation</h2>
-                        <span class="badge-live">● Kaggle 2,500 Cohort</span>
+                        <div class="card-header-titles">
+                            <h2 data-i18n="card_ms_title">MS Phenotype & McDonald Criteria</h2>
+                            <p data-i18n="card_ms_desc">Spatial/temporal dissemination, relapse kinetics, and fluid biomarkers</p>
+                        </div>
+                        <span class="badge-pill-live" data-i18n="badge_cohort">2,500 Cohort Model</span>
                     </div>
 
                     <form id="ms-form" class="clinical-form">
                         <div class="form-section">
-                            <h3 class="section-title">Clinical Demographics & Attack Dynamics</h3>
+                            <h3 class="section-title" data-i18n="sec_attack_dynamics">Attack Dynamics & Functional Scores</h3>
                             <div class="grid-2">
                                 <div class="input-group">
-                                    <label for="ms_age">Age (Years)</label>
+                                    <label for="ms_age" data-i18n="lbl_age">Age (Years)</label>
                                     <input type="number" id="ms_age" name="age" min="15" max="80" value="34" required>
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_gender">Biological Sex</label>
+                                    <label for="ms_gender" data-i18n="lbl_gender">Biological Sex</label>
                                     <select id="ms_gender" name="gender">
-                                        <option value="0">Female</option>
-                                        <option value="1">Male</option>
+                                        <option value="0" data-i18n="opt_female">Female</option>
+                                        <option value="1" data-i18n="opt_male">Male</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_relapse_rate_arr">Annualized Relapse Rate (ARR)</label>
+                                    <label for="ms_relapse_rate_arr" data-i18n="lbl_arr">Annualized Relapse Rate (ARR)</label>
                                     <input type="number" id="ms_relapse_rate_arr" name="relapse_rate_arr" step="0.1" min="0.0" max="6.0" value="1.8">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_edss">EDSS Disability Score (0–10.0)</label>
+                                    <label for="ms_edss" data-i18n="lbl_edss_ms">EDSS Disability Score (0–10.0)</label>
                                     <input type="number" id="ms_edss" name="edss" step="0.5" min="0.0" max="10.0" value="2.5">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_fss_fatigue">Fatigue Severity Scale (FSS 1–7)</label>
+                                    <label for="ms_fss_fatigue" data-i18n="lbl_fss">Fatigue Severity Scale (FSS 1–7)</label>
                                     <input type="number" id="ms_fss_fatigue" name="fss_fatigue" step="0.1" min="1.0" max="7.0" value="5.2">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_sdmt_cognitive">Cognitive Speed (SDMT Score 0–80)</label>
+                                    <label for="ms_sdmt_cognitive" data-i18n="lbl_sdmt">Cognitive Processing (SDMT 0–80)</label>
                                     <input type="number" id="ms_sdmt_cognitive" name="sdmt_cognitive" min="0" max="80" value="49">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_disease_duration_months">Disease Duration (Months)</label>
+                                    <label for="ms_disease_duration_months" data-i18n="lbl_ms_duration">Disease Duration (Months)</label>
                                     <input type="number" id="ms_disease_duration_months" name="disease_duration_months" min="0" max="360" value="48">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_onset_presentation">Onset Presentation Type</label>
+                                    <label for="ms_onset_presentation" data-i18n="lbl_onset_type">Onset Presentation Type</label>
                                     <select id="ms_onset_presentation" name="onset_presentation">
-                                        <option value="0">Asymptomatic / Incidental</option>
-                                        <option value="1">Monofocal (Optic Neuritis / Myelitis)</option>
-                                        <option value="2">Multifocal Acute Attacks</option>
-                                        <option value="3">Insidious Progressive Myelopathy</option>
+                                        <option value="0" data-i18n="opt_onset_0">Asymptomatic / Incidental Finding</option>
+                                        <option value="1" data-i18n="opt_onset_1">Monofocal (Optic Neuritis / Transverse Myelitis)</option>
+                                        <option value="2" data-i18n="opt_onset_2">Multifocal Acute Attacks</option>
+                                        <option value="3" data-i18n="opt_onset_3">Insidious Progressive Myelopathy</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">McDonald 2017 MRI Lesion Topography & Volumetrics</h3>
+                            <h3 class="section-title" data-i18n="sec_mcdonald_mri">McDonald 2017 MRI Lesion Topography & Volumetrics</h3>
                             <div class="grid-2">
                                 <div class="input-group">
-                                    <label for="ms_periventricular_lesions">Periventricular Lesions (Dawson)</label>
+                                    <label for="ms_periventricular_lesions" data-i18n="lbl_periventricular">Periventricular Lesions</label>
                                     <input type="number" id="ms_periventricular_lesions" name="periventricular_lesions" min="0" max="40" value="9">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_juxtacortical_lesions">Juxtacortical / Cortical Lesions</label>
+                                    <label for="ms_juxtacortical_lesions" data-i18n="lbl_juxtacortical">Juxtacortical / Cortical Lesions</label>
                                     <input type="number" id="ms_juxtacortical_lesions" name="juxtacortical_lesions" min="0" max="30" value="4">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_infratentorial_lesions">Infratentorial (Brainstem / Cerebellar)</label>
+                                    <label for="ms_infratentorial_lesions" data-i18n="lbl_infratentorial">Infratentorial (Brainstem / Cerebellar)</label>
                                     <input type="number" id="ms_infratentorial_lesions" name="infratentorial_lesions" min="0" max="20" value="2">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_spinal_cord_lesions">Spinal Cord Lesions</label>
+                                    <label for="ms_spinal_cord_lesions" data-i18n="lbl_spinal_cord">Spinal Cord Lesions</label>
                                     <input type="number" id="ms_spinal_cord_lesions" name="spinal_cord_lesions" min="0" max="15" value="2">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_gd_enhancing_lesions">Active Gd+ Enhancing Lesions (T1)</label>
+                                    <label for="ms_gd_enhancing_lesions" data-i18n="lbl_gd_enhancing">Active Gd+ Enhancing Lesions (T1)</label>
                                     <input type="number" id="ms_gd_enhancing_lesions" name="gd_enhancing_lesions" min="0" max="15" value="3">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_t1_black_holes">T1 Hypointense Black Holes</label>
+                                    <label for="ms_t1_black_holes" data-i18n="lbl_black_holes">T1 Hypointense Black Holes</label>
                                     <input type="number" id="ms_t1_black_holes" name="t1_black_holes" min="0" max="30" value="2">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_n_wbv">Brain Parenchymal Fraction (nWBV)</label>
+                                    <label for="ms_n_wbv" data-i18n="lbl_nwbv_ms">Brain Parenchymal Fraction (nWBV)</label>
                                     <input type="number" id="ms_n_wbv" name="n_wbv" step="0.01" min="0.55" max="0.88" value="0.74">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_thalamus_vol_mm3">Thalamic Volume (mm³)</label>
+                                    <label for="ms_thalamus_vol_mm3" data-i18n="lbl_thalamus">Thalamic Volume (mm³)</label>
                                     <input type="number" id="ms_thalamus_vol_mm3" name="thalamus_vol_mm3" min="5000" max="18000" value="12200">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_t2_lesion_count">Total T2 Lesions Count</label>
+                                    <label for="ms_t2_lesion_count" data-i18n="lbl_t2_total">Total T2 Lesions Count</label>
                                     <input type="number" id="ms_t2_lesion_count" name="t2_lesion_count" min="0" max="100" value="18">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">Molecular & Biofluid Biomarkers</h3>
+                            <h3 class="section-title" data-i18n="sec_molecular_biofluids">Molecular & Biofluid Biomarkers</h3>
                             <div class="grid-2">
                                 <div class="input-group">
-                                    <label for="ms_oligoclonal_bands">CSF Oligoclonal Bands (OCB)</label>
+                                    <label for="ms_oligoclonal_bands" data-i18n="lbl_ocb_ms">CSF Oligoclonal Bands (OCB)</label>
                                     <select id="ms_oligoclonal_bands" name="oligoclonal_bands">
-                                        <option value="0">Negative (Pattern 1)</option>
-                                        <option value="1" selected>Positive (Pattern 2 Intrathecal IgG)</option>
+                                        <option value="0" data-i18n="opt_ocb_0">Negative (Pattern 1)</option>
+                                        <option value="1" data-i18n="opt_ocb_1" selected>Positive (Pattern 2 Intrathecal IgG)</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_serum_nfl_pg_ml">Serum NfL (pg/ml, Simoa)</label>
+                                    <label for="ms_serum_nfl_pg_ml" data-i18n="lbl_snfl">Serum NfL (pg/ml, Simoa)</label>
                                     <input type="number" id="ms_serum_nfl_pg_ml" name="serum_nfl_pg_ml" step="0.5" min="2" max="250" value="68.0">
                                 </div>
                                 <div class="input-group">
-                                    <label for="ms_csf_igg_index">CSF IgG Index (Normal &lt; 0.70)</label>
+                                    <label for="ms_csf_igg_index" data-i18n="lbl_csf_igg">CSF IgG Index (Normal &lt; 0.70)</label>
                                     <input type="number" id="ms_csf_igg_index" name="csf_igg_index" step="0.05" min="0.2" max="3.0" value="1.20">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn-primary">Classify MS Phenotypic Subclass</button>
-                            <button type="button" id="btn-ms-reset" class="btn-secondary">Reset to Control</button>
+                            <button type="submit" class="btn-primary" data-i18n="btn_compute_ms">Classify MS Phenotypic Subclass</button>
+                            <button type="button" id="btn-ms-reset" class="btn-secondary" data-i18n="btn_reset_baseline">Reset to Control Baseline</button>
                         </div>
                     </form>
                 </section>
@@ -351,63 +410,87 @@
                 <!-- Right: MS Staging Results Panel -->
                 <section class="card results-card">
                     <div class="card-header">
-                        <h2>MS Phenotype Staging & Criteria</h2>
-                        <span class="badge-ai">99.88% CV Accuracy</span>
+                        <div class="card-header-titles">
+                            <h2 data-i18n="res_card_ms_title">MS Phenotype Staging</h2>
+                            <p data-i18n="res_card_ms_desc">McDonald 2017 Consensus Criteria Validation</p>
+                        </div>
+                        <span class="badge-pill-verified" data-i18n="badge_precision">99.8% CV Precision</span>
                     </div>
 
                     <div class="result-banner">
                         <div class="res-title-wrap">
-                            <span class="label-sub">Predicted Clinical Subclass</span>
+                            <span class="meta-label" data-i18n="lbl_predicted_subclass">Predicted Clinical Subclass</span>
                             <h3 id="ms-res-subclass" class="res-headline">Analyzing...</h3>
-                            <span id="ms-res-confidence" class="confidence-pill">--% Probability</span>
+                            <div class="confidence-wrap">
+                                <span id="ms-res-confidence" class="confidence-pill">--% Probability</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mcdonald-criteria-box">
-                        <h4 class="criteria-title">McDonald 2017 Diagnostic Validation</h4>
+                        <div class="section-subtitle-row">
+                            <h4 data-i18n="lbl_mcdonald_formal">McDonald 2017 Formal Verification</h4>
+                            <span class="section-subtext" data-i18n="lbl_mcdonald_standard">Clinical Diagnostic Standard</span>
+                        </div>
                         <div class="criteria-badges-row">
                             <div id="mcdonald-dis-badge" class="mcdonald-badge">
-                                <span class="badge-check">●</span>
-                                <span class="badge-name">Dissemination in Space (DIS)</span>
+                                <div class="badge-header-row">
+                                    <span class="badge-status-dot"></span>
+                                    <span class="badge-name" data-i18n="lbl_dis">Dissemination in Space (DIS)</span>
+                                </div>
                                 <span id="mcdonald-dis-status" class="badge-detail">--</span>
                             </div>
                             <div id="mcdonald-dit-badge" class="mcdonald-badge">
-                                <span class="badge-check">●</span>
-                                <span class="badge-name">Dissemination in Time (DIT)</span>
+                                <div class="badge-header-row">
+                                    <span class="badge-status-dot"></span>
+                                    <span class="badge-name" data-i18n="lbl_dit">Dissemination in Time (DIT)</span>
+                                </div>
                                 <span id="mcdonald-dit-status" class="badge-detail">--</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="urgency-callout">
-                        <strong>DMT Pharmacotherapy & Clinical Protocol:</strong>
+                        <div class="callout-header">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                            <strong data-i18n="lbl_dmt_protocol">DMT Pharmacotherapy & Clinical Protocol</strong>
+                        </div>
                         <p id="ms-res-dmt">Evaluating protocol...</p>
                     </div>
 
                     <div class="diff-section">
-                        <h4>Subclass Probability Distribution (Kaggle Ensemble)</h4>
+                        <div class="section-subtitle-row">
+                            <h4 data-i18n="lbl_subclass_dist">Subclass Probability Distribution</h4>
+                            <span class="section-subtext" data-i18n="lbl_kaggle_benchmark">Kaggle Benchmark Ensemble</span>
+                        </div>
                         <div id="ms-diff-bars" class="diff-container">
                             <!-- Populated dynamically -->
                         </div>
                     </div>
 
                     <div class="indices-section">
-                        <h4>Neuroimmunological & Progression Indices</h4>
+                        <div class="section-subtitle-row">
+                            <h4 data-i18n="lbl_neuro_indices">Neuroimmunological Derived Indices</h4>
+                            <span class="section-subtext" data-i18n="lbl_automated_indices">Automated Composite Markers</span>
+                        </div>
                         <div class="indices-grid">
                             <div class="index-box">
-                                <span class="index-label">Acute Inflammatory Index</span>
+                                <span class="index-label" data-i18n="idx_inflam">Inflammatory Index</span>
                                 <span id="ms-idx-inflam" class="index-val">--</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Neurodegenerative Burden</span>
+                                <span class="index-label" data-i18n="idx_neurodeg">Neurodegeneration</span>
                                 <span id="ms-idx-neurodeg" class="index-val">--</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Progression Velocity</span>
+                                <span class="index-label" data-i18n="idx_prog">Progression Rate</span>
                                 <span id="ms-idx-prog" class="index-val">--</span>
                             </div>
                             <div class="index-box">
-                                <span class="index-label">Cognitive-Fatigue Score</span>
+                                <span class="index-label" data-i18n="idx_fatigue">Cognitive-Fatigue</span>
                                 <span id="ms-idx-fatigue" class="index-val">--</span>
                             </div>
                         </div>
@@ -419,8 +502,18 @@
 
     <footer class="app-footer">
         <div class="footer-container">
-            <p>NeuroAI Multimodal Studio • Dual Screening & MS Subclass Phenotyping Engine</p>
-            <p class="footer-sub">Benchmarked on 2,500 Kaggle MS Cohort Patients • Stratified 5-Fold Cross-Validation Macro-F1: 0.9983 • Copyright (c) Danila (airwar31). All rights reserved.</p>
+            <div class="footer-primary">
+                <span class="footer-brand">NeuroAI Studio</span>
+                <span class="footer-sep">/</span>
+                <span data-i18n="footer_title">Multimodal Clinical Neurological Decision Support System</span>
+            </div>
+            <div class="footer-meta">
+                <span data-i18n="footer_meta1">Empirically validated on 2,500 patient cohort</span>
+                <span class="footer-bullet">•</span>
+                <span data-i18n="footer_meta2">Stratified 5-Fold Cross-Validation Macro-F1: 0.9983</span>
+                <span class="footer-bullet">•</span>
+                <span data-i18n="footer_meta3">Medical research software — for clinical research & exploratory evaluation</span>
+            </div>
         </div>
     </footer>
 

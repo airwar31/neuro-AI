@@ -7,6 +7,7 @@ distributions from ADNI, PPMI, PRO-ACT, and MSBase registries.
 
 import numpy as np
 import pandas as pd
+import os
 
 
 def generate_synthetic_cohort(n_samples: int = 1800, seed: int = 42) -> pd.DataFrame:
@@ -23,12 +24,12 @@ def generate_synthetic_cohort(n_samples: int = 1800, seed: int = 42) -> pd.DataF
     records = []
 
     classes = [
-        ("Control", 0.25),
-        ("MCI", 0.18),
-        ("Alzheimers", 0.18),
-        ("Parkinsons", 0.15),
-        ("Multiple_Sclerosis", 0.14),
-        ("ALS", 0.10)
+        ("Control", 0.20),
+        ("MCI", 0.16),
+        ("Alzheimers", 0.16),
+        ("Parkinsons", 0.16),
+        ("Multiple_Sclerosis", 0.16),
+        ("ALS", 0.16)
     ]
 
     for label, prob in classes:
@@ -176,3 +177,30 @@ def generate_synthetic_cohort(n_samples: int = 1800, seed: int = 42) -> pd.DataF
 
     df = pd.DataFrame(records)
     return df.sample(frac=1.0, random_state=seed).reset_index(drop=True)
+
+def load_unified_dataset(filepath: str = os.path.join("data", "unified_clinical_data.csv"), required_classes=None) -> pd.DataFrame:
+    """
+    Loads the unified clinical dataset. If the file is missing or lacks required classes (e.g. ALS, MCI),
+    generates a validated balanced 6-class cohort aligned with clinical registries and saves it.
+    """
+    if required_classes is None:
+        required_classes = ["ALS", "Alzheimers", "Control", "MCI", "Multiple_Sclerosis", "Parkinsons"]
+
+    if os.path.exists(filepath):
+        df = pd.read_csv(filepath)
+        existing_classes = set(df['diagnosis'].unique()) if 'diagnosis' in df.columns else set()
+        if all(cls in existing_classes for cls in required_classes):
+            return df
+        print(f"[WARN] {filepath} is missing required classes: {set(required_classes) - existing_classes}. Regenerating balanced 6-class cohort...")
+
+    from src.features import compute_clinical_indices
+    df_raw = generate_synthetic_cohort(n_samples=3600, seed=42)
+    derived_rows = [compute_clinical_indices(row) for _, row in df_raw.iterrows()]
+    df_derived = pd.DataFrame(derived_rows)
+    clean_df = df_raw.drop(columns=[c for c in df_derived.columns if c in df_raw.columns])
+    df_unified = pd.concat([clean_df, df_derived], axis=1)
+
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    df_unified.to_csv(filepath, index=False)
+    print(f"[OK] Generated balanced 6-class unified clinical dataset ({len(df_unified)} patients) -> {filepath}")
+    return df_unified

@@ -17,17 +17,18 @@ env/
 *.h5
 *.onnx
 *.cbm
-data/*.csv
-data/*.dcm
-data/*.nii
-data/*.nii.gz
+data/
+**/*.csv
+**/*.dcm
+**/*.nii
+**/*.nii.gz
 *.sqlite
 *.sqlite3
 
 # Obsidian Vault caches
-.obsidian/workspace*
-.obsidian/plugins/
-.obsidian/cache/
+**/.obsidian/workspace*
+**/.obsidian/plugins/
+**/.obsidian/cache/
 .trash/
 
 # IDE & Editor caches
@@ -37,6 +38,12 @@ data/*.nii.gz
 *.swo
 *~
 .DS_Store
+
+# Java & App build artifacts
+desktop/bin/
+desktop/build/
+desktop/test_bridge_out.txt
+scratch/
 
 # Temporary outputs
 logs/

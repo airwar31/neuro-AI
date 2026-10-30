@@ -18,7 +18,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report, f1_score, roc_auc_score, accuracy_score
 from sklearn.preprocessing import LabelEncoder
 
-from src.dataset import generate_synthetic_cohort
+from src.dataset import generate_synthetic_cohort, load_unified_dataset
 from src.features import compute_clinical_indices
 from src.models import ClinicalEnsemblePredictor, FEATURE_NAMES, CLASSES
 
@@ -27,21 +27,27 @@ def main():
     parser = argparse.ArgumentParser(description="Train NeuroAI Multimodal Classifier")
     parser.add_argument("--samples", type=int, default=1800, help="Total cohort sample size")
     parser.add_argument("--folds", type=int, default=5, help="Number of cross-validation folds")
+    parser.add_argument("--source", type=str, default="unified", choices=["unified", "synthetic"], help="Cohort source")
     parser.add_argument("--output", type=str, default=os.path.join(REPO_DIR, "models", "classifier.joblib"), help="Output model path")
     args = parser.parse_args()
 
     print("=" * 72, flush=True)
     print("  NeuroAI: Multimodal Neurological Disorder Classifier Training", flush=True)
-    print(f"  Cohort Size: {args.samples} patients | CV Folds: {args.folds}", flush=True)
+    print(f"  Source: {args.source} | Cohort Size: {args.samples} patients | CV Folds: {args.folds}", flush=True)
     print("=" * 72, flush=True)
 
-    print("\n1. Generating multimodal patient cohort...", flush=True)
-    df = generate_synthetic_cohort(n_samples=args.samples)
+    print("\n1. Loading multimodal clinical cohort...", flush=True)
+    if args.source == "synthetic":
+        df = generate_synthetic_cohort(n_samples=args.samples)
+    else:
+        df = load_unified_dataset()
 
     print("\n2. Engineering biomedical indices...", flush=True)
     derived_rows = [compute_clinical_indices(row) for _, row in df.iterrows()]
     df_derived = pd.DataFrame(derived_rows)
-    df_full = pd.concat([df, df_derived], axis=1)
+    # Avoid duplicate column names between raw df and derived df
+    clean_df = df.drop(columns=[c for c in df_derived.columns if c in df.columns])
+    df_full = pd.concat([clean_df, df_derived], axis=1)
 
     X = df_full[FEATURE_NAMES].values
     y_raw = df_full['diagnosis'].values

@@ -370,6 +370,6 @@ def get_ms_presets():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5060))
+    port = int(os.environ.get("PORT", 5050))
     print(f"Starting NeuroAI Multimodal Studio on http://127.0.0.1:{port}")
     app.run(host="0.0.0.0", port=port, debug=False)

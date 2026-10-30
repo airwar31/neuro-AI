@@ -2,6 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Obsidian Ready](https://img.shields.io/badge/Obsidian-Dual--Graph%20Vault-7c3aed.svg?logo=obsidian&logoColor=white)](https://obsidian.md/)
+[![Obsidian Interactive Graph](https://img.shields.io/badge/Obsidian%20Graph-Live%20Interactive-7c3aed.svg?logo=obsidian&logoColor=white)](https://airwar31.github.io/neuro-AI/)
 [![Antigravity Skills](https://img.shields.io/badge/Antigravity-5%20Clinical%20Skills-0284c7.svg)](file:///.agents/skills)
 [![License: Proprietary](https://img.shields.io/badge/License-Author%20Proprietary-red.svg)](file:///README.md)
 [![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](file:///README.md)
@@ -11,6 +12,11 @@
 ## 🌐 Navigation / Выбор Языка
 - [English Documentation](#-english-documentation)
 - [Русская Документация](#-русская-документация)
+
+> [!TIP]
+> 🌐 **Live Interactive Knowledge Graph (Obsidian Digital Garden):**  
+> Explore the 34 interconnected clinical notes with real-time force-directed graph physics, instant search, and note popovers:  
+> 👉 **[https://airwar31.github.io/neuro-AI/](https://airwar31.github.io/neuro-AI/)**
 
 ---
 
@@ -183,7 +189,7 @@ start.bat
 # Linux / macOS
 bash start.sh
 ```
-Open browser at: `http://127.0.0.1:5060`
+Open browser at: `http://127.0.0.1:5050`
 
 ---
 
